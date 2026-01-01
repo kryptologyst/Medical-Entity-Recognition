@@ -1,0 +1,33 @@
+# @package training
+
+_target_: src.train.trainer.NERTrainer
+
+# Training parameters
+epochs: 10
+batch_size: 16
+gradient_accumulation_steps: 1
+warmup_steps: 100
+max_grad_norm: 1.0
+
+# Optimization
+optimizer: "AdamW"
+scheduler: "linear"
+learning_rate: 2e-5
+weight_decay: 0.01
+
+# Early stopping
+early_stopping:
+  enabled: true
+  patience: 3
+  min_delta: 0.001
+
+# Checkpointing
+checkpointing:
+  save_best: true
+  save_last: true
+  save_every_n_epochs: 1
+
+# Validation
+validation:
+  frequency: 1  # every N epochs
+  metrics: ["f1", "precision", "recall"]

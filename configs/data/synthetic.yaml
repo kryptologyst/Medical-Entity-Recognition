@@ -1,0 +1,71 @@
+# @package data
+
+_target_: src.data.synthetic_dataset.SyntheticNERDataset
+
+# Dataset configuration
+dataset_name: "synthetic_clinical_notes"
+num_samples: 1000
+train_split: 0.7
+val_split: 0.15
+test_split: 0.15
+
+# Text generation parameters
+min_length: 50
+max_length: 500
+num_entities_per_text: 3
+
+# Entity templates
+entity_templates:
+  disease:
+    - "hypertension"
+    - "diabetes mellitus"
+    - "coronary artery disease"
+    - "pneumonia"
+    - "asthma"
+    - "depression"
+    - "anxiety disorder"
+    - "chronic kidney disease"
+    - "heart failure"
+    - "stroke"
+  
+  chemical:
+    - "metformin"
+    - "insulin"
+    - "aspirin"
+    - "lisinopril"
+    - "atorvastatin"
+    - "warfarin"
+    - "prednisone"
+    - "ibuprofen"
+    - "acetaminophen"
+    - "morphine"
+  
+  symptom:
+    - "chest pain"
+    - "shortness of breath"
+    - "fatigue"
+    - "dizziness"
+    - "nausea"
+    - "headache"
+    - "fever"
+    - "cough"
+    - "abdominal pain"
+    - "weight loss"
+  
+  procedure:
+    - "blood test"
+    - "chest X-ray"
+    - "CT scan"
+    - "MRI"
+    - "surgery"
+    - "biopsy"
+    - "endoscopy"
+    - "colonoscopy"
+    - "echocardiogram"
+    - "stress test"
+
+# Data augmentation
+augmentation:
+  enabled: true
+  synonym_replacement: 0.1
+  entity_shuffle: 0.05

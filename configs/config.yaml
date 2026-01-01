@@ -1,0 +1,42 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: biobert
+  - override /data: synthetic
+  - override /training: default
+
+# Project configuration
+project_name: "medical_entity_recognition"
+version: "1.0.0"
+description: "Medical Entity Recognition for Clinical NLP"
+
+# Paths
+paths:
+  data_dir: "data"
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  assets_dir: "assets"
+
+# Logging
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  use_tensorboard: true
+  use_wandb: false
+
+# Device configuration
+device: "auto"  # auto, cuda, mps, cpu
+seed: 42
+
+# Privacy and compliance
+privacy:
+  enable_deid: true
+  redact_phi: true
+  log_phi: false
+
+# Evaluation
+evaluation:
+  metrics: ["f1", "precision", "recall", "accuracy"]
+  save_predictions: true
+  calibration: true

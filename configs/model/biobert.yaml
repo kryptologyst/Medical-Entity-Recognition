@@ -1,0 +1,26 @@
+# @package model
+
+_target_: src.models.biobert_model.BioBERTNERModel
+
+model_name: "dmis-lab/biobert-base-cased-v1.1"
+max_length: 512
+num_labels: 9  # BILOU tags for 4 entity types
+dropout: 0.1
+learning_rate: 2e-5
+weight_decay: 0.01
+
+# Entity types
+entity_types:
+  - "DISEASE"
+  - "CHEMICAL" 
+  - "SYMPTOM"
+  - "PROCEDURE"
+
+# Model variants
+variants:
+  biobert:
+    model_name: "dmis-lab/biobert-base-cased-v1.1"
+  clinicalbert:
+    model_name: "emilyalsentzer/Bio_ClinicalBERT"
+  scispacy:
+    model_name: "en_ner_bc5cdr_md"
